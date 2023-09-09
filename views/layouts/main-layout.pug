@@ -1,0 +1,39 @@
+include ../mixins/mixins
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title #{pageTitle}
+        link(rel='stylesheet', href='/bootstrap/bootstrap.css')
+        link(rel='stylesheet', href='/css/main.css')
+        
+    body 
+        .wrapper
+            .row
+                nav.col-2
+                    a.blue(href="/")
+                        i.fas.fa-dove
+                    a(href="/")
+                        i.fas.fa-home
+                    a(href="/search")
+                        i.fas.fa-search
+                    a(href="/notifications")
+                        i.fas.fa-bell
+                    a(href="/messages")
+                        i.fas.fa-envelope
+                    a(href="/profile")
+                        i.fas.fa-user
+                    a(href="/logout")
+                        i.fas.fa-sign-out-alt
+                .mainSectionContainer.col-10.col-md-8.col-lg-6
+                    .titleContainer
+                        h1 #{pageTitle}
+                    block content
+                .d-none.d-md-block.col-2.col-lg-4
+                    
+        script(src='https://kit.fontawesome.com/9c001dacaa.js' crossorigin='anonymous')
+        script(src="/bootstrapjs/bootstrap.js")
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+        script(src="/js/common.js")
