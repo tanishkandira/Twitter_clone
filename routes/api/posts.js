@@ -7,12 +7,19 @@ const Post = require('../../schemas/PostSchema')
 
 app.use(bodyParser.urlencoded({extended:false}))
 
-
+//Getting posts
 router.get("/", (req,res) =>{
-    
-    
+    Post.find()
+    .populate("postedBy")
+    .then((results)=>{
+      res.status(200).send(results)  
+    })
+    .catch(error=>{
+        console.log(error)
+        res.sendStatus(400)
+    })
 })
-
+//Posting posts
 router.post("/", async (req,res)=>{
     if(!req.body.content){
         console.log("Params not sent with request")

@@ -32,6 +32,10 @@ $("#submitPostButton").click((event)=>{
 
 function createPostHtml(postData){
     var postedBy = postData.postedBy
+
+    if(postedBy._id === undefined){
+        console.log("Id not populated")
+    }
     var displayName = postedBy.firstName+" "+postedBy.lastName
     var timestamp = postedBy.createdAt
     return `<div class = 'post'>
